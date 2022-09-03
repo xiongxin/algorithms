@@ -1,7 +1,7 @@
 #include "../DenseGRAPH.hpp"
 #include "../IO.hpp"
 
-template <typename Graph> std::vector<Edge> edge(const Graph &G) {
+template <typename Graph> std::vector<Edge> edges(const Graph &G) {
   int E = 0;
   std::vector<Edge> a(G.E());
 

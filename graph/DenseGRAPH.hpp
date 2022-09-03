@@ -1,10 +1,7 @@
-#include <vector>
+#pragma once
 
-struct Edge {
-  int v;
-  int w;
-  Edge(int v = -1, int w = -1) : v{v}, w{w} {}
-};
+#include "Edge.hpp"
+#include <vector>
 
 class DenseGRAPH {
 private:
