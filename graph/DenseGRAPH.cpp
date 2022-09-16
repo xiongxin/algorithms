@@ -28,13 +28,27 @@ void DenseGRAPH::remove(Edge e) {
     adj[w][v] = false;
 }
 
-DenseGRAPH::adjIterator::adjIterator(const DenseGRAPH &G, int v)
-    : G{G}, v{v}, i{-1} {}
+class DenseGRAPH::adjIterator {
+private:
+  const DenseGRAPH &G;
+  int i;
+  int v;
 
-int DenseGRAPH::adjIterator::nxt() {
-  for (++i; i < G.V(); ++i)
-    if (G.adj[v][i])
-      return i;
+public:
+  adjIterator(const DenseGRAPH &G, int v) : G{G}, v{v}, i{-1} {}
 
-  return -1;
-}
+  int beg() {
+    i = -1;
+    return nxt();
+  }
+
+  int nxt() {
+    for (++i; i < G.V(); ++i)
+      if (G.adj[v][i])
+        return i;
+
+    return -1;
+  }
+
+  bool end() { return i >= G.V(); }
+};

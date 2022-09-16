@@ -18,21 +18,7 @@ public:
   void insert(Edge);
   void remove(Edge);
   bool edge(int v, int w) const { return adj[v][w]; }
-  class adjIterator {
-  private:
-    const DenseGRAPH &G;
-    int i;
-    int v;
 
-  public:
-    adjIterator(const DenseGRAPH &, int);
-    int beg() {
-      i = -1;
-      return nxt();
-    }
-    int nxt();
-    bool end() { return i >= G.V(); }
-  };
-
+  class adjIterator;
   friend class adjIterator;
 };

@@ -1,8 +1,9 @@
 #pragma once
 
 #include "Edge.hpp"
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
-#include <range/v3/all.hpp>
 #include <string>
 
 template <typename Graph> class IO {
@@ -42,4 +43,13 @@ public:
   }
   // inserting edges defined by pairs of symbols on standard input
   static void scan(Graph &);
+
+  static void randE(Graph &G, int E) {
+    std::srand(std::time(nullptr));
+    for (int i = 0; i < E; i++) {
+      int v = static_cast<int>(G.V() * std::rand() / (1.0 + RAND_MAX));
+      int w = static_cast<int>(G.V() * std::rand() / (1.0 + RAND_MAX));
+      G.insert(Edge{v, w});
+    }
+  }
 };
