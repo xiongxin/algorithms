@@ -18,12 +18,8 @@ public:
   void insert(Edge);
   void remove(Edge);
   bool edge(int v, int w) const { return adj[v][w]; }
-  class adjIterator {
-  private:
-    const DenseGRAPH &G;
-    int i;
-    int v;
 
+<<<<<<< HEAD
   public:
     adjIterator(const DenseGRAPH &, int);
     int beg() {
@@ -34,5 +30,8 @@ public:
     bool end() const { return i >= G.V(); }
   };
 
+=======
+  class adjIterator;
+>>>>>>> branch 'main' of git@github.com:xiongxin/algorithms.git
   friend class adjIterator;
 };
