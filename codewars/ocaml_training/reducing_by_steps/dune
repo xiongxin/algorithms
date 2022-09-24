@@ -1,0 +1,3 @@
+(executables
+ (names reducing_by_steps reducing_by_steps_test)
+ (libraries base ounit2))

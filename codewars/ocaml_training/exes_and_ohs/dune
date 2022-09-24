@@ -1,0 +1,3 @@
+(executables
+ (names exes_and_ohs exes_and_ohs_test)
+ (libraries base ounit2))

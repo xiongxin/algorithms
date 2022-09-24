@@ -31,7 +31,7 @@ public:
       return nxt();
     }
     int nxt();
-    bool end() { return i >= G.V(); }
+    bool end() const { return i >= G.V(); }
   };
 
   friend class adjIterator;

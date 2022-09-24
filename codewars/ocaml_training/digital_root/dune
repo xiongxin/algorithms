@@ -1,0 +1,3 @@
+(executables
+ (names digital_root digital_root_test)
+ (libraries base ounit2))
