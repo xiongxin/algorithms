@@ -1,0 +1,3 @@
+(executables
+ (names sum_john consecutive_strings allinone)
+ (libraries core batteries))
