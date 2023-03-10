@@ -1,11 +1,8 @@
 /**
- * 将两个升序链表合并为一个新的 升序
- * 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
- * Definition for
- * singly-linked list. struct ListNode { int val; ListNode *next; ListNode() :
- * val(0), next(nullptr) {} ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
+ * Definition for singly-linked list.
+ *
+ * 给你一个链表数组，每个链表都已经按升序排列。
+ * 请你将所有链表合并到一个升序链表中，返回合并后的链表。
  */
 
 #include <bits/stdc++.h>
@@ -20,7 +17,6 @@ struct ListNode {
 };
 
 class Solution {
- public:
   ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
     ListNode* res = new ListNode();
     ListNode* tmp = res;
@@ -37,7 +33,16 @@ class Solution {
     }
 
     tmp->next = list1 ? list1 : list2;
-
     return res->next;
+  }
+
+ public:
+  ListNode* mergeKLists(vector<ListNode*>& lists) {
+    if (lists.size() == 0) return nullptr;
+    for (int i = 1; i < lists.size(); ++i) {
+      lists[i] = mergeTwoLists(lists[i - 1], lists[i]);
+    }
+
+    return lists.back();
   }
 };

@@ -10,13 +10,13 @@ using namespace std;
 
 using Complex = pair<int, int>;
 
-static array<Complex, 4> complex_table = {make_pair(1, 0), make_pair(0, 1),
-                                          make_pair(-1, 0), make_pair(0, -1)};
+static array complex_table = {make_pair(1, 0), make_pair(0, 1),
+                              make_pair(-1, 0), make_pair(0, -1)};
 
 Complex power_mul_num(int power, int mul) {
   Complex com = complex_table[power % 4];
   if (mul == 0) {
-    return Complex{0, 0};
+    return Complex{};
   }
   return com;
 }
@@ -40,6 +40,7 @@ vector<int> convert(string n) {
 }
 
 int main(int argc, char const* argv[]) {
+  Complex c{};
   vector<int> result = convert(string("1011001"));
   cout << result[0] << ":" << result[1] << "\n";
   return 0;
